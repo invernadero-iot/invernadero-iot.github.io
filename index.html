@@ -11,7 +11,7 @@ body {
     padding: 0;
 
     background:
-        linear-gradient(rgba(255,255,255,0.06), rgba(255,255,255,0.06)),
+        linear-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0.05)),
         url("FONDO.jpg");
 
     background-size: 85%;
@@ -21,111 +21,98 @@ body {
 
     background-color: #000;
     font-family: Arial, sans-serif;
-}
-
-.contenedor {
-    width: 450px;
-    margin: 100px auto;
-    padding: 30px;
-    text-align: center;
-
-    background: rgba(0, 0, 0, 0.65);
-    border-radius: 15px;
-    backdrop-filter: blur(6px);
-
     color: white;
 }
 
-button {
+.contenedor {
+    width: 480px;
+    margin: 60px auto;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.70);
+    border-radius: 15px;
+    backdrop-filter: blur(6px);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.aviso {
+    background: rgba(255, 193, 7, 0.15);
+    border-left: 5px solid #ffc107;
+    padding: 15px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+label {
     display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+}
+
+button {
     width: 100%;
     padding: 12px;
-    margin: 12px 0;
+    margin-top: 25px;
     border: none;
     border-radius: 8px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
     transition: 0.3s;
 }
 
-.btn-si {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.btn-si:hover {
+button:hover {
     background-color: #43a047;
-}
-
-.btn-no {
-    background-color: #f44336;
-    color: white;
-}
-
-.btn-no:hover {
-    background-color: #d32f2f;
-}
-
-.oculto {
-    display: none;
-}
-
-.instrucciones {
-    margin-top: 20px;
-    text-align: left;
 }
 </style>
 </head>
 
 <body>
 
-<div class="contenedor" id="pantalla1">
-    <h2>Configuración Inicial</h2>
-    <p>¿Estás conectado a la misma red WiFi del sistema?</p>
+<div class="contenedor">
 
-    <button class="btn-si" onclick="mostrarConectado()">Sí, estoy conectado</button>
-    <button class="btn-no" onclick="mostrarNoConectado()">No, no estoy conectado</button>
+<h1>Configuración del Sistema</h1>
+
+<div class="aviso">
+⚠ <strong>IMPORTANTE:</strong><br><br>
+Para poder realizar cambios en la configuración debes estar conectado a la misma red WiFi del ESP32-S3.<br><br>
+Si no estás conectado a la red correcta, los cambios no se aplicarán correctamente.
 </div>
 
-<div class="contenedor oculto" id="pantallaConectado">
-    <h2>Perfecto ✅</h2>
-    <p>Ingresa la IP del ESP32-S3 para continuar:</p>
+<form>
 
-    <input type="text" placeholder="Ej: 192.168.1.50" style="width:100%; padding:10px; border-radius:8px; border:none;">
-    
-    <button class="btn-si">Ir al Panel</button>
+<label>Nombre de Red (SSID)</label>
+<input type="text" placeholder="Ej: MiRedWiFi">
+
+<label>Contraseña WiFi</label>
+<input type="password" placeholder="Contraseña de la red">
+
+<label>ThingSpeak - Write API Key</label>
+<input type="text" placeholder="API Key">
+
+<label>ID Hoja de Cálculo</label>
+<input type="text" placeholder="ID del documento">
+
+<button type="submit">Guardar Cambios</button>
+
+</form>
+
 </div>
-
-<div class="contenedor oculto" id="pantallaNoConectado">
-    <h2>Modo Configuración 📡</h2>
-
-    <div class="instrucciones">
-        <p>1️⃣ Enciende el ESP32-S3 en modo configuración.</p>
-        <p>2️⃣ Conéctate a la red WiFi: <b>ESP32_Config</b></p>
-        <p>3️⃣ Abre tu navegador y escribe:</p>
-        <p><b>192.168.4.1</b></p>
-    </div>
-
-    <button class="btn-si" onclick="volverInicio()">Entendido</button>
-</div>
-
-<script>
-function mostrarConectado() {
-    document.getElementById("pantalla1").classList.add("oculto");
-    document.getElementById("pantallaConectado").classList.remove("oculto");
-}
-
-function mostrarNoConectado() {
-    document.getElementById("pantalla1").classList.add("oculto");
-    document.getElementById("pantallaNoConectado").classList.remove("oculto");
-}
-
-function volverInicio() {
-    document.getElementById("pantallaNoConectado").classList.add("oculto");
-    document.getElementById("pantalla1").classList.remove("oculto");
-}
-</script>
 
 </body>
 </html>
