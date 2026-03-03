@@ -17,22 +17,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
         }
 
-        /* Imagen de fondo */
         body::before {
             content: "";
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            width: 700px;
+            height: 318px;
             background: url("fondo.jpg") no-repeat center center;
-            background-size: cover;
-            opacity: 0.5; /* Nivel de transparencia */
-            z-index: -1;
+            background-size: contain;
+            opacity: 0.15;
         }
 
         /* Contenedor principal */
