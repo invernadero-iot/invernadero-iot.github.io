@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Panel Principal</title>
+<title>Configuración ESP32-S3</title>
 
 <style>
 body {
@@ -23,88 +23,109 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Contenedor central */
 .contenedor {
-    width: 400px;
+    width: 450px;
     margin: 100px auto;
     padding: 30px;
     text-align: center;
 
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0.65);
     border-radius: 15px;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(6px);
 
     color: white;
 }
 
-/* Título */
-h1 {
-    margin-bottom: 10px;
-}
-
-p {
-    margin-bottom: 25px;
-}
-
-/* Botones */
-.boton {
+button {
     display: block;
     width: 100%;
     padding: 12px;
-    margin: 10px 0;
-
+    margin: 12px 0;
     border: none;
     border-radius: 8px;
-    cursor: pointer;
-
     font-size: 16px;
     font-weight: bold;
-
+    cursor: pointer;
     transition: 0.3s;
 }
 
-/* Botón 1 */
-.boton1 {
+.btn-si {
     background-color: #4CAF50;
     color: white;
 }
 
-.boton1:hover {
-    background-color: #45a049;
+.btn-si:hover {
+    background-color: #43a047;
 }
 
-/* Botón 2 */
-.boton2 {
-    background-color: #2196F3;
-    color: white;
-}
-
-.boton2:hover {
-    background-color: #1e88e5;
-}
-
-/* Botón 3 */
-.boton3 {
+.btn-no {
     background-color: #f44336;
     color: white;
 }
 
-.boton3:hover {
+.btn-no:hover {
     background-color: #d32f2f;
+}
+
+.oculto {
+    display: none;
+}
+
+.instrucciones {
+    margin-top: 20px;
+    text-align: left;
 }
 </style>
 </head>
 
 <body>
 
-<div class="contenedor">
-    <h1>Bienvenido</h1>
-    <p>Selecciona una opción para continuar</p>
+<div class="contenedor" id="pantalla1">
+    <h2>Configuración Inicial</h2>
+    <p>¿Estás conectado a la misma red WiFi del sistema?</p>
 
-    <button class="boton boton1">Iniciar</button>
-    <button class="boton boton2">Configuración</button>
-    <button class="boton boton3">Salir</button>
+    <button class="btn-si" onclick="mostrarConectado()">Sí, estoy conectado</button>
+    <button class="btn-no" onclick="mostrarNoConectado()">No, no estoy conectado</button>
 </div>
+
+<div class="contenedor oculto" id="pantallaConectado">
+    <h2>Perfecto ✅</h2>
+    <p>Ingresa la IP del ESP32-S3 para continuar:</p>
+
+    <input type="text" placeholder="Ej: 192.168.1.50" style="width:100%; padding:10px; border-radius:8px; border:none;">
+    
+    <button class="btn-si">Ir al Panel</button>
+</div>
+
+<div class="contenedor oculto" id="pantallaNoConectado">
+    <h2>Modo Configuración 📡</h2>
+
+    <div class="instrucciones">
+        <p>1️⃣ Enciende el ESP32-S3 en modo configuración.</p>
+        <p>2️⃣ Conéctate a la red WiFi: <b>ESP32_Config</b></p>
+        <p>3️⃣ Abre tu navegador y escribe:</p>
+        <p><b>192.168.4.1</b></p>
+    </div>
+
+    <button class="btn-si" onclick="volverInicio()">Entendido</button>
+</div>
+
+<script>
+function mostrarConectado() {
+    document.getElementById("pantalla1").classList.add("oculto");
+    document.getElementById("pantallaConectado").classList.remove("oculto");
+}
+
+function mostrarNoConectado() {
+    document.getElementById("pantalla1").classList.add("oculto");
+    document.getElementById("pantallaNoConectado").classList.remove("oculto");
+}
+
+function volverInicio() {
+    document.getElementById("pantallaNoConectado").classList.add("oculto");
+    document.getElementById("pantalla1").classList.remove("oculto");
+}
+</script>
 
 </body>
 </html>
