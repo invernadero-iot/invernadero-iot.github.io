@@ -2,41 +2,106 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>ID Hoja de Cálculo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía Google Sheets</title>
+
 <style>
 body {
-    font-family: Arial;
-    background-color: #111;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("FONDO.jpg");
+    background-size: cover;
+    background-position: center;
     color: white;
-    padding: 40px;
 }
+
+.contenedor {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 30px;
+    background: rgba(0,0,0,0.75);
+    border-radius: 15px;
+}
+
 h1 {
     color: #4CAF50;
 }
+
+h2 {
+    margin-top: 30px;
+    color: #ffc107;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.paso {
+    margin: 15px 0;
+    padding-left: 15px;
+    border-left: 4px solid #4CAF50;
+}
 </style>
 </head>
+
 <body>
 
-<h1>¿Qué es el ID de la Hoja de Cálculo?</h1>
+<div class="contenedor">
+
+<h1>¿Qué es el ID de Google Sheets?</h1>
 
 <p>
-El ID es el identificador único de tu documento en Google Sheets.
-El ESP32-S3 enviará datos a esa hoja usando un script.
+El ID es el identificador único de tu hoja de cálculo en Google.
+El ESP32 enviará datos a esa hoja usando ese ID.
 </p>
 
-<h2>¿Cómo obtener el ID?</h2>
+<h2>🔹 Paso 1: Crear una hoja</h2>
 
-<ol>
-<li>Crear una hoja en Google Drive</li>
-<li>Abrir el documento</li>
-<li>Copiar la parte central de la URL</li>
-</ol>
-
-<p>
-Ejemplo de URL:
+<div class="paso">
+Ingresa a:
 <br><br>
-https://docs.google.com/spreadsheets/d/<strong>ESTE_ES_EL_ID</strong>/edit
+<a href="https://drive.google.com" target="_blank">
+https://drive.google.com
+</a>
+<br><br>
+Crea una nueva hoja de cálculo.
+</div>
+
+<h2>🔹 Paso 2: Obtener el ID</h2>
+
+<div class="paso">
+Cuando abras la hoja, verás una URL como esta:
+<br><br>
+https://docs.google.com/spreadsheets/d/<strong>1AbCDeFgHiJkLmNoPqRsTuVwXyZ123456789</strong>/edit
+<br><br>
+El ID es la parte que está entre:
+<br>
+<strong>/d/</strong> y <strong>/edit</strong>
+</div>
+
+<h2>🔹 Paso 3: Copiar y pegar</h2>
+
+<div class="paso">
+Copia ese ID y pégalo en la página principal de configuración.
+</div>
+
+<h2>📌 ¿Por qué es necesario?</h2>
+
+<p>
+El ID permite que el sistema sepa exactamente en qué documento
+guardar los datos enviados desde el ESP32.
 </p>
+
+</div>
 
 </body>
 </html>
