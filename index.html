@@ -3,48 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi Página</title>
+<title>Panel Principal</title>
 
 <style>
 body {
     margin: 0;
     padding: 0;
 
-    /* Imagen con leve capa blanca suave */
     background:
-        linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+        linear-gradient(rgba(255,255,255,0.06), rgba(255,255,255,0.06)),
         url("FONDO.jpg");
 
-    background-size: 85%;          /* Tamaño regular, no exagerado */
-    background-position: center;   /* Centrada */
-    background-repeat: no-repeat;  /* No se repite */
+    background-size: 85%;
+    background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
 
-    background-color: #000;        /* Fondo negro si sobra espacio */
+    background-color: #000;
     font-family: Arial, sans-serif;
-    color: white;
+}
+
+/* Contenedor central */
+.contenedor {
+    width: 400px;
+    margin: 100px auto;
+    padding: 30px;
     text-align: center;
+
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+
+    color: white;
 }
 
-.contenido {
-    margin-top: 100px;
-}
-
+/* Título */
 h1 {
-    font-size: 40px;
+    margin-bottom: 10px;
 }
 
 p {
-    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+/* Botones */
+.boton {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+/* Botón 1 */
+.boton1 {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.boton1:hover {
+    background-color: #45a049;
+}
+
+/* Botón 2 */
+.boton2 {
+    background-color: #2196F3;
+    color: white;
+}
+
+.boton2:hover {
+    background-color: #1e88e5;
+}
+
+/* Botón 3 */
+.boton3 {
+    background-color: #f44336;
+    color: white;
+}
+
+.boton3:hover {
+    background-color: #d32f2f;
 }
 </style>
 </head>
 
 <body>
 
-<div class="contenido">
+<div class="contenedor">
     <h1>Bienvenido</h1>
-    <p>Tu página con fondo personalizado</p>
+    <p>Selecciona una opción para continuar</p>
+
+    <button class="boton boton1">Iniciar</button>
+    <button class="boton boton2">Configuración</button>
+    <button class="boton boton3">Salir</button>
 </div>
 
 </body>
