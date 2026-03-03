@@ -1,113 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Configuración Invernadero IoT</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Página</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+body {
+    margin: 0;
+    padding: 0;
 
-        body {
-            font-family: Arial, sans-serif;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-        }
+    /* Imagen con leve capa blanca suave */
+    background:
+        linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+        url("FONDO.jpg");
 
-        /* Imagen de fondo centrada y ampliada */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 1500px; /* tamaño ampliado */
-            aspect-ratio: 700 / 400; /* mantiene proporción */
-            background: url("FONDO.jpg") no-repeat center center;
-            background-size: contain;
-            transform: translate(-50%, -50%);
-            opacity: 0.20; /* nivel de transparencia */
-            z-index: -1;
-        }
+    background-size: 85%;          /* Tamaño regular, no exagerado */
+    background-position: center;   /* Centrada */
+    background-repeat: no-repeat;  /* No se repite */
+    background-attachment: fixed;
 
-        /* Contenedor principal */
-        .container {
-            background: rgba(255, 255, 255, 0.92);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.4);
-            text-align: center;
-            max-width: 420px;
-            width: 90%;
-        }
+    background-color: #000;        /* Fondo negro si sobra espacio */
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+}
 
-        h2 {
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
+.contenido {
+    margin-top: 100px;
+}
 
-        p {
-            margin-bottom: 25px;
-            color: #555;
-        }
+h1 {
+    font-size: 40px;
+}
 
-        button {
-            padding: 15px;
-            margin: 12px 0;
-            font-size: 16px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
-            transition: 0.3s ease;
-        }
-
-        .btn-primary {
-            background-color: #007bff;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-        }
-
-        .btn-secondary {
-            background-color: #28a745;
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background-color: #1e7e34;
-        }
-    </style>
+p {
+    font-size: 20px;
+}
+</style>
 </head>
 
 <body>
 
-<div class="container">
-    <h2>Configuración del Sistema</h2>
-    <p>Seleccione una opción para continuar:</p>
-
-    <button class="btn-primary" onclick="conozcoRed()">Conozco la red actual</button>
-    <button class="btn-secondary" onclick="noConozcoRed()">No conozco la red</button>
+<div class="contenido">
+    <h1>Bienvenido</h1>
+    <p>Tu página con fondo personalizado</p>
 </div>
-
-<script>
-function conozcoRed() {
-    window.location.href = "http://invernadero.local";
-}
-
-function noConozcoRed() {
-    alert("1️⃣ Espere hasta que aparezca la red INVERNADERO_XXXX.\n\n2️⃣ Conéctese con contraseña: 12345678\n\n3️⃣ Luego abra en su navegador: http://192.168.4.1");
-}
-</script>
 
 </body>
 </html>
