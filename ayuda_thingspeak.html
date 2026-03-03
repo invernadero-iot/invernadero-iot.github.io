@@ -2,37 +2,118 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>¿Qué es ThingSpeak?</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía ThingSpeak</title>
+
 <style>
 body {
-    font-family: Arial;
-    background-color: #111;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("FONDO.jpg");
+    background-size: cover;
+    background-position: center;
     color: white;
-    padding: 40px;
 }
+
+.contenedor {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 30px;
+    background: rgba(0,0,0,0.75);
+    border-radius: 15px;
+}
+
 h1 {
     color: #4CAF50;
 }
+
+h2 {
+    margin-top: 30px;
+    color: #ffc107;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.paso {
+    margin: 15px 0;
+    padding-left: 15px;
+    border-left: 4px solid #4CAF50;
+}
 </style>
 </head>
+
 <body>
 
-<h1>¿Qué es ThingSpeak?</h1>
+<div class="contenedor">
+
+<h1>¿Qué es ThingSpeak y para qué sirve?</h1>
 
 <p>
-ThingSpeak es una plataforma IoT que permite almacenar y visualizar datos en la nube.
-El ESP32-S3 enviará información a tu canal usando una API Key.
+ThingSpeak es una plataforma IoT en la nube que permite almacenar,
+visualizar y analizar datos enviados desde dispositivos como el ESP32-S3.
 </p>
 
-<h2>¿Cómo obtener la Write API Key?</h2>
+<p>
+En tu proyecto, el ESP enviará datos (temperatura, sensores, etc.)
+a un canal personal usando una clave llamada <strong>Write API Key</strong>.
+</p>
 
-<ol>
-<li>Crear una cuenta en https://thingspeak.com</li>
-<li>Crear un nuevo Channel</li>
-<li>Ir a la sección "API Keys"</li>
-<li>Copiar la "Write API Key"</li>
-<li>Pegarla en la página principal</li>
-</ol>
+<h2>🔹 Paso 1: Crear una cuenta</h2>
+
+<div class="paso">
+Ingresa al sitio oficial:
+<br><br>
+<a href="https://thingspeak.com" target="_blank">
+https://thingspeak.com
+</a>
+<br><br>
+Crea una cuenta gratuita.
+</div>
+
+<h2>🔹 Paso 2: Crear un Channel</h2>
+
+<div class="paso">
+Una vez dentro:
+<ul>
+<li>Haz clic en <strong>Channels</strong></li>
+<li>Selecciona <strong>New Channel</strong></li>
+<li>Asigna un nombre</li>
+<li>Activa los campos que usarás (Field1, Field2, etc.)</li>
+<li>Guarda el canal</li>
+</ul>
+</div>
+
+<h2>🔹 Paso 3: Obtener la Write API Key</h2>
+
+<div class="paso">
+Dentro de tu canal:
+<ul>
+<li>Ve a la pestaña <strong>API Keys</strong></li>
+<li>Copia la <strong>Write API Key</strong></li>
+<li>Pégala en la página principal de configuración</li>
+</ul>
+</div>
+
+<h2>📌 ¿Por qué es necesaria?</h2>
+
+<p>
+La API Key funciona como una contraseña que autoriza al ESP32
+a enviar datos a tu canal.
+Sin ella, ThingSpeak rechazará la información.
+</p>
+
+</div>
 
 </body>
 </html>
